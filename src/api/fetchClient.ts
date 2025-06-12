@@ -12,7 +12,7 @@ fetchClient.interceptors.response.use(
     if (error.response && (error.response.status === 401 || error.response.status === 403)) {
       // Remove user from localStorage/context and redirect to login
       window.localStorage.removeItem('user');
-      window.location.href = '/login?session=expired';
+      window.location.href = '/login';
     }
     return Promise.reject(error);
   }
