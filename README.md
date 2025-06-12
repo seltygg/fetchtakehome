@@ -59,7 +59,7 @@ src/
 ## Usage Notes
 - The app uses session cookies for authentication. For best results, use a regular browser window (not incognito) and ensure third-party cookies are enabled.
 - Favorites are persisted per device/browser. For true multi-user isolation, server-side storage is recommended.
-- If you encounter network/auth errors, check your browser console and ensure CORS/cookies are supported by your deployment platform (Vercel/Netlify both work).
+
 
 ## License
 MIT
