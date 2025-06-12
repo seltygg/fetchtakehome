@@ -5,11 +5,11 @@ A modern React + TypeScript app to help dog-lovers search, filter, and match wit
 ## Features
 - Secure login (with session cookie)
 - Browse, filter, and sort available dogs
-- Paginated results with advanced, Amazon-style pagination UX
+- Paginated results with advanced
 - Favorite dogs and find your match
 - Favorites pagination (with URL sync)
 - Responsive, mobile-friendly UI
-- Quick dog details popup on hover (like Amazon quick view)
+- Quick dog details popup on hover 
 - Persistent favorites (per device)
 - Robust error handling and session management
 
