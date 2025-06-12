@@ -13,7 +13,7 @@ function MatchModal({ open, onClose, matchedDog }: MatchModalProps) {
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <DialogTitle>Your Match!</DialogTitle>
       <DialogContent>
-        {matchedDog ? <DogCard dog={matchedDog} isFavorite={false} onToggleFavorite={() => {}} /> : 'No match found.'}
+        {matchedDog ? <DogCard dog={matchedDog} isFavorite={false} onToggleFavorite={() => {}} quickView={false} hideFavorite={true} /> : 'No match found.'}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} variant="contained">Close</Button>

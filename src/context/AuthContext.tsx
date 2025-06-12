@@ -40,6 +40,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     await apiLogout();
     setUser(null);
+    try {
+      localStorage.removeItem('favorites');
+    } catch {}
   };
 
   if (loading) {

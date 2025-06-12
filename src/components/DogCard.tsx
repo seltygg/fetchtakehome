@@ -9,9 +9,11 @@ interface DogCardProps {
   dog: Dog;
   isFavorite: boolean;
   onToggleFavorite: (id: string) => void;
+  quickView?: boolean;
+  hideFavorite?: boolean;
 }
 
-export default function DogCard({ dog, isFavorite, onToggleFavorite }: DogCardProps) {
+export default function DogCard({ dog, isFavorite, onToggleFavorite, quickView = true, hideFavorite = false }: DogCardProps) {
   const iconRef = useRef<HTMLButtonElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
@@ -33,6 +35,39 @@ export default function DogCard({ dog, isFavorite, onToggleFavorite }: DogCardPr
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  if (!quickView) {
+    // Normal card with all details, no hover overlay
+    return (
+      <Card sx={{ width: 320, maxWidth: '100%', m: 'auto', boxShadow: 3, borderRadius: 3, p: 2, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ width: 100, height: 100, borderRadius: '50%', overflow: 'hidden', boxShadow: 2, background: '#f3f3f3', flexShrink: 0 }}>
+          <CardMedia
+            component="img"
+            image={dog.img}
+            alt={dog.name}
+            sx={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
+          />
+        </Box>
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="h6" fontWeight={700}>{dog.name}</Typography>
+          <Typography variant="subtitle2" color="text.secondary">Breed: {dog.breed}</Typography>
+          <Typography variant="body2">Age: {dog.age}</Typography>
+          <Typography variant="body2" color="text.secondary">Zip Code: {dog.zip_code}</Typography>
+        </Box>
+        {!hideFavorite && (
+          <IconButton
+            ref={iconRef}
+            onClick={() => onToggleFavorite(dog.id)}
+            color={isFavorite ? 'error' : 'default'}
+            aria-label="favorite"
+            sx={{ ml: 1 }}
+          >
+            <FavoriteIcon />
+          </IconButton>
+        )}
+      </Card>
+    );
+  }
+  // Quick view (hover overlay) mode
   return (
     <>
       <Card
@@ -86,24 +121,26 @@ export default function DogCard({ dog, isFavorite, onToggleFavorite }: DogCardPr
             }}
           />
         </Box>
-        <IconButton
-          ref={iconRef}
-          onClick={() => onToggleFavorite(dog.id)}
-          color={isFavorite ? 'error' : 'default'}
-          aria-label="favorite"
-          sx={{
-            position: 'absolute',
-            top: 10,
-            right: 10,
-            background: 'rgba(255,255,255,0.7)',
-            boxShadow: 1,
-            zIndex: 2,
-            transition: 'color 0.2s',
-            '&:hover': { color: 'error.main', background: 'rgba(255,255,255,0.9)' },
-          }}
-        >
-          <FavoriteIcon />
-        </IconButton>
+        {!hideFavorite && (
+          <IconButton
+            ref={iconRef}
+            onClick={() => onToggleFavorite(dog.id)}
+            color={isFavorite ? 'error' : 'default'}
+            aria-label="favorite"
+            sx={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              background: 'rgba(255,255,255,0.7)',
+              boxShadow: 1,
+              zIndex: 2,
+              transition: 'color 0.2s',
+              '&:hover': { color: 'error.main', background: 'rgba(255,255,255,0.9)' },
+            }}
+          >
+            <FavoriteIcon />
+          </IconButton>
+        )}
       </Card>
       <Popper
         open={open}
@@ -151,14 +188,16 @@ export default function DogCard({ dog, isFavorite, onToggleFavorite }: DogCardPr
           <Typography variant="subtitle1" color="text.secondary">Breed: {dog.breed}</Typography>
           <Typography variant="body1">Age: {dog.age}</Typography>
           <Typography variant="body2" color="text.secondary">Zip Code: {dog.zip_code}</Typography>
-          <IconButton
-            onClick={() => onToggleFavorite(dog.id)}
-            color={isFavorite ? 'error' : 'default'}
-            aria-label="favorite"
-            sx={{ mt: 1 }}
-          >
-            <FavoriteIcon />
-          </IconButton>
+          {!hideFavorite && (
+            <IconButton
+              onClick={() => onToggleFavorite(dog.id)}
+              color={isFavorite ? 'error' : 'default'}
+              aria-label="favorite"
+              sx={{ mt: 1 }}
+            >
+              <FavoriteIcon />
+            </IconButton>
+          )}
         </Paper>
       </Popper>
     </>
