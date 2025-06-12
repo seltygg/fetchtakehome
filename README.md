@@ -23,7 +23,7 @@ A modern React + TypeScript app to help dog-lovers search, filter, and match wit
 1. Clone the repository:
    ```sh
    git clone <your-repo-url>
-   cd fetch-dogs
+   cd fetchtakehome
    ```
 2. Install dependencies:
    ```sh
