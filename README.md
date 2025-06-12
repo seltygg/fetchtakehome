@@ -1,4 +1,4 @@
-# Fetch Dogs
+# Fetch Take Home
 
 A modern React + TypeScript app to help dog-lovers search, filter, and match with shelter dogs!
 
@@ -19,7 +19,7 @@ A modern React + TypeScript app to help dog-lovers search, filter, and match wit
 - Node.js (v16+ recommended)
 - npm
 
-### Setup
+### Run Locally
 1. Clone the repository:
    ```sh
    git clone <your-repo-url>
@@ -38,19 +38,11 @@ A modern React + TypeScript app to help dog-lovers search, filter, and match wit
 ### Environment
 - No environment variables are required. The app connects to the Fetch API at `https://frontend-take-home-service.fetch.com`.
 
-## Deployment
+## Live Project
 
-### Deploy to Vercel
-1. Push your code to GitHub.
-2. Go to [Vercel](https://vercel.com/) and import your repository.
-3. Set the build command to `npm run build` and the output directory to `dist` (default for Vite).
-4. Deploy!
+You can view the live project here:
 
-### Deploy to Netlify
-1. Push your code to GitHub.
-2. Go to [Netlify](https://app.netlify.com/) and import your repository.
-3. Set the build command to `npm run build` and the publish directory to `dist`.
-4. Deploy!
+👉 [https://takehomesankalp.netlify.app](https://takehomesankalp.netlify.app)
 
 ## Project Structure
 ```

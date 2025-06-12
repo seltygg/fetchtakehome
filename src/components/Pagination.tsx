@@ -1,4 +1,4 @@
-import { Pagination as MuiPagination, Box, TextField, IconButton, Typography } from '@mui/material';
+import { Pagination as MuiPagination, Box, TextField, IconButton } from '@mui/material';
 import { useState } from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { Card, CardMedia, CardContent, Typography, IconButton, Box, Chip } from '@mui/material';
+import { Card, CardMedia, Typography, IconButton, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import type { Dog } from '../types';
 import { useEffect, useRef, useState } from 'react';

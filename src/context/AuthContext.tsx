@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { login as apiLogin, logout as apiLogout } from '../api/auth';
 import type { AuthUser, AuthContextType } from './authTypes';
-import type { SearchDogsParams } from '../api/dogs';
 import { getBreeds } from '../api/dogs';
 import { CircularProgress, Box } from '@mui/material';
 
